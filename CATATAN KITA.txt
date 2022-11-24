@@ -1,4 +1,9 @@
 perintah mulai: php spark serve
+jika ada eror biasayanya belum ada folder vendor, solusi instal dengan perintah: composer instal -vvv
+
+rename file env menjadi .env
+sesuaikan konfigurasi disana, file ini tidak ikut diupload ke github karena setiap person bisa beda konfignya
+
 
 bootstrap:
 https://getbootstrap.com/docs/4.6/getting-started/introduction/
