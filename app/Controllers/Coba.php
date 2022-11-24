@@ -13,4 +13,9 @@ class Coba extends BaseController
     {
         echo "YUK NGOPI!";
     }
+    
+    public function team()
+    {
+        echo "Halo, kenalkan kita $this->team";
+    }
 }
