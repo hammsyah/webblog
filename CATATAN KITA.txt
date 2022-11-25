@@ -1,3 +1,27 @@
+
+Smartgit
+1. Pastikan PULL dulu sebelum mulai edit code atau PUSH Commit  
+2. Berikan catatan yg mudah di mengerti setiap kali membuat Commit 
+
+Server Requirement 
+1. PHP versi 7.4 atau yang terbaru
+2. MySQL versi 5.1 atau yang terbaru
+3. Ekstensi PHP yang harus terinstall
+- intl
+- mbstring
+
+Dasar CodeIgniter 4
+1. Perintah untuk memulai menjalankan 
+- $ php spark serve
+2. Perintah untuk instalasi library (jika folder vendor belum ada atau ketika clone project CI4 baru)
+- composer install -vvv
+3. copy file env dan ubah namanya menjadi .env
+- file .env berisi variabel yang dibutuhkan aplikasi seperti konfigurasi database
+
+Tutorial CodeIgiter 4
+1. https://www.petanikode.com/tutorial/codeigniter-4/
+
+
 perintah mulai: php spark serve
 jika ada eror biasayanya belum ada folder vendor, solusi instal dengan perintah: composer instal -vvv
 
