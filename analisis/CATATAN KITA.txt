@@ -1,4 +1,3 @@
-
 Smartgit
 1. Pastikan PULL dulu sebelum mulai edit code atau PUSH Commit  
 2. Berikan catatan yg mudah di mengerti setiap kali membuat Commit 
