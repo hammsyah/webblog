@@ -1,4 +1,3 @@
-
 Smartgit
 1. Pastikan PULL dulu sebelum mulai edit code atau PUSH Commit  
 2. Berikan catatan yg mudah di mengerti setiap kali membuat Commit 
@@ -20,7 +19,8 @@ Dasar CodeIgniter 4
 
 Tutorial CodeIgiter 4
 1. https://www.petanikode.com/tutorial/codeigniter-4/
-
+2. 2.List youtube video tutorial codeIgniter 4 :
+https://youtube.com/playlist?list=PLFIM0718LjIUkkIq1Ub6B5dYNb6IlMvtc
 
 perintah mulai: php spark serve
 jika ada eror biasayanya belum ada folder vendor, solusi instal dengan perintah: composer instal -vvv
