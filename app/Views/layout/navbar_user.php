@@ -10,19 +10,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?= base_url('/page/index'); ?>">DASBOARD</a>
-                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="<?= base_url('/page/katagori'); ?>">KATAGORI</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= base_url('/artikel/index'); ?>">ARTIKEL</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?= base_url('/user/index'); ?>">MANAJEMEN USER</a>
-                        </li>
-
 
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
@@ -30,7 +24,7 @@
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 
                     </form>
-                    <a type="button" class="btn btn-outline-danger ml-2" href="<?= base_url('/logout/index'); ?>">LOGOUT</a>
+                    <button type="button" class="btn btn-outline-danger ml-2">LOGOUT</button>
                 </div>
             </nav>
         </div>
