@@ -3,6 +3,7 @@
 
 <!-- buat section disini untuk render di template -->
 <?= $this->section('isikonten'); ?>
+
 <div class="container">
     <div class="row">
         <div class="col">
