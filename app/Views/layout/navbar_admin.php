@@ -22,9 +22,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="<?= base_url('/user/index'); ?>">MANAJEMEN USER</a>
                         </li>
-
-
                     </ul>
+
+                    <h6>Selamat Datang SIAPA</h6>
 
                     <a type="button" class="btn btn-outline-danger ml-2" href="<?= base_url('/logout/index'); ?>">LOGOUT</a>
                 </div>
