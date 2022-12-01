@@ -3,9 +3,9 @@
 
 <div class="container">
 
-    <div class="row mt-7">
+    <div class="row mt-3">
         <div class="col-sm-6 mr-auto">
-            <h3>DAFTAR USER</h3>
+            <h4>DAFTAR USER</h4>
         </div>
         <div class="col-sm-4">
 
@@ -38,16 +38,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Sinta Prameswari</td>
-                        <td>sinta@weblog.com</td>
-                        <td>Admin</td>
-                        <td>
-                            <a href="" class="btn btn-success btn-sm text-uppercase fw-bold" type="submit">edit</a>
-                            <a href="" class="btn btn-danger btn-sm text-uppercase fw-bold" type="submit">Hapus</a>
-                        </td>
-                    </tr>
+                    <?php $no = 1; ?>
+                    <?php foreach ($user as $u) : ?>
+                        <tr>
+                            <th scope="row"><?= $no++; ?></th>
+                            <td><?= $u['realname']; ?></td>
+                            <td><?= $u['user_name']; ?></td>
+                            <td><?= $u['fid_level']; ?></td>
+                            <td>
+                                <a href="" class="btn btn-success btn-sm text-uppercase fw-bold" type="submit">edit</a>
+                                <a href="" class="btn btn-danger btn-sm text-uppercase fw-bold" type="submit">Hapus</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
 
 
                 </tbody>
