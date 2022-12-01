@@ -1,0 +1,4 @@
+1. BUAT database baru dengan nama db_webblog (nama bebas)
+2. Import file sql di folder ini(agar tabel kita sama, jadi mudah untuk mengelola misal nama file controller atau model berbeda)
+3. Jangan lupa edit file .evn untuk menyesuaikan konfigurasi database
+4. Saat jalankan php spark,jangan lupa aktifkan mysql di xampp 
