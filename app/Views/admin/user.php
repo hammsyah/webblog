@@ -26,7 +26,6 @@
 
         </div>
     </div>
-
     <!-- membuat tabel disini -->
     <div class="row">
         <div class="col mt-2">
@@ -45,14 +44,14 @@
                 <tbody>
                     <!-- body tabel, isi data kita ambil dari database yang sudah diatur oleh controller user -->
                     <?php $no = 1; ?>
-                    <?php foreach ($user as $u) : ?>
+                    <?php foreach ($user as $u => $isi) : ?>
                         <tr>
                             <th scope="row"><?= $no++; ?></th>
-                            <td><?= $u['realname']; ?></td>
-                            <td><?= $u['user_name']; ?></td>
-                            <td><?= $u['fid_level']; ?></td>
+                            <td><?= $isi->realname ?></td>
+                            <td><?= $isi->user_name ?></td>
+                            <td><?= $isi->nama_level ?></td>
                             <td>
-                                <a href="" class="btn btn-success btn-sm text-uppercase fw-bold" type="submit">edit</a>
+                                <a href="<?= base_url('user/ubah/' . $isi->id_user); ?>" class="btn btn-warning btn-sm text-uppercase fw-bold" type="submit">edit</a>
                                 <a href="" class="btn btn-danger btn-sm text-uppercase fw-bold" type="submit">Hapus</a>
                             </td>
                         </tr>
@@ -62,7 +61,6 @@
         </div>
     </div>
 </div>
-
 
 <!-- Modal, skrip ini untuk membuat pop out dengan menekan tombol  triger -->
 <!-- kita contek dari dokumentasi bootstrap 4 -->
@@ -76,7 +74,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="post" action="<?php echo base_url() . 'mahasiswa/tambah_aksi'; ?> ">
+                <form method="post" action="<?= base_url('user/tambah'); ?>">
 
                     <div class="form-group">
                         <label>Real Name</label>
@@ -85,7 +83,7 @@
 
                     <div class="form-group">
                         <label>User Name</label>
-                        <input type="text" name="username" class="form-control">
+                        <input type="text" name="user_name" class="form-control">
                     </div>
 
                     <div class="form-group">
@@ -95,12 +93,19 @@
 
                     <div class="form-group">
                         <label>Role</label>
-                        <input type="text" name="role" class="form-control">
+                        <select name="fid_level" class="form-control" required>
+                            <option value="" hidden></option>
+                            <?php foreach ($user as $u => $isi) : ?>
+                                <option value="<?= $isi->id_level; ?>"><?= $isi->nama_level; ?></option>
+                            <?php endforeach; ?>
+                            <option value=""></option>
+                        </select>
+
                     </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">BATAL</button>
-                <button type="button" class="btn btn-primary">SIMPAN</button>
+                <button type="submit" class="btn btn-primary">SIMPAN</button>
             </div>
         </div>
     </div>
