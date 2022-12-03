@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.10
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 01, 2022 at 08:51 AM
--- Server version: 8.0.31
--- PHP Version: 7.4.33
+-- Generation Time: Dec 03, 2022 at 03:30 AM
+-- Server version: 5.7.24
+-- PHP Version: 7.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_webblog`
+-- Database: `unugiri_2022_webblog`
 --
 
 -- --------------------------------------------------------
@@ -29,14 +28,14 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `aa_user` (
-  `id_user` int NOT NULL,
-  `fid_level` int NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `fid_level` int(11) NOT NULL,
   `user_name` varchar(50) NOT NULL,
   `pasword` varchar(100) NOT NULL,
   `realname` varchar(100) NOT NULL,
   `enable_user` tinyint(1) NOT NULL,
   `keterangan` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `aa_user`
@@ -53,9 +52,9 @@ INSERT INTO `aa_user` (`id_user`, `fid_level`, `user_name`, `pasword`, `realname
 --
 
 CREATE TABLE `aa_user_level` (
-  `id_level` int NOT NULL,
+  `id_level` int(11) NOT NULL,
   `nama_level` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `aa_user_level`
@@ -72,9 +71,9 @@ INSERT INTO `aa_user_level` (`id_level`, `nama_level`) VALUES
 --
 
 CREATE TABLE `dm_category` (
-  `id_category` int NOT NULL,
+  `id_category` int(11) NOT NULL,
   `nama_category` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -83,8 +82,8 @@ CREATE TABLE `dm_category` (
 --
 
 CREATE TABLE `tr_article` (
-  `id_article` int NOT NULL,
-  `fid_catergory` int NOT NULL,
+  `id_article` int(11) NOT NULL,
+  `fid_catergory` int(11) NOT NULL,
   `title_article` varchar(100) NOT NULL,
   `content_article` text NOT NULL,
   `img_article` varchar(20) DEFAULT NULL,
@@ -94,7 +93,7 @@ CREATE TABLE `tr_article` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
@@ -123,34 +122,6 @@ ALTER TABLE `dm_category`
 --
 ALTER TABLE `tr_article`
   ADD PRIMARY KEY (`id_article`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `aa_user`
---
-ALTER TABLE `aa_user`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `aa_user_level`
---
-ALTER TABLE `aa_user_level`
-  MODIFY `id_level` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `dm_category`
---
-ALTER TABLE `dm_category`
-  MODIFY `id_category` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `tr_article`
---
-ALTER TABLE `tr_article`
-  MODIFY `id_article` int NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
