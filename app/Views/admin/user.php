@@ -53,6 +53,7 @@
                             <td>
                                 <a href="<?= base_url('user/ubah/' . $isi->id_user); ?>" class="btn btn-warning btn-sm text-uppercase fw-bold" type="submit">edit</a>
                                 <a href="" class="btn btn-danger btn-sm text-uppercase fw-bold" type="submit">Hapus</a>
+                                <a href="" class="btn btn-primary btn-sm text-uppercase fw-bold" type="submit">Reset Pasword</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

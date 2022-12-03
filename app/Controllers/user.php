@@ -32,15 +32,30 @@ class User extends BaseController
     public function tambah() //fungsi untuk menyimpan data ke database
     {
         $data = $this->request->getPost(); //mengambil data dari submit tambah data
-        $this->aa_userModel->insert($data);
-        return redirect()->to(base_url('user'))->with('SUKSES', 'Data Berhasil disimpan');
+        $this->aa_userModel->insert($data); // insert data ke data base
+        return redirect()->to(base_url('user'))->with('SUKSES', 'Data Berhasil disimpan'); //kembalikan ke halaman daftar user setelah berhasil insert
     }
 
-    public function ubah($id)
+    public function ubah($id_user) //fungsi untuk menampilkan halaman edit user sekaligus mengirimkan data sesuai yang dipilih
     {
-        $data = [
-            'coba' => $id
-        ];
-        return view('admin/edit_user', $data); //kirim $data ke view user
+        $user = $this->aa_userModel->find($id_user); //membuat variabel user dan diisi dari tabel user berdasar id
+        $level =  $this->aa_user_levelModel->findAll(); //membuat variabel level dan diisi semua data dari tabel aa_user_level
+        if (is_object($user)) { //jika data ditemukan berdasarkan id maka proses
+            $data = [
+                'user' => $user, //mengisi variabel user dengan user
+                'level' => $level // mengisi variabel level dengan level
+            ];
+
+            return view('admin/edit_user', $data); //kirim $data ke view edit_user
+        } else { //jika data ID tidak titemukan tampilkan pesan eror dari kodeikniter dibawah ini
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+    }
+
+    public function ubahsekarang($id = null) //fungsi untuk update data saat tombol simpan ditekan
+    {
+        $data =  $this->request->getPost(); //mendapatkan data dari view edit data
+        $this->aa_userModel->update($id, $data); // mengupdate database berdasarkan data yang didapat
+        return redirect()->to(base_url('/user'))->with('success', 'Data Berhasil Diupdate');
     }
 }
