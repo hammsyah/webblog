@@ -52,10 +52,21 @@ class User extends BaseController
         }
     }
 
-    public function ubahsekarang($id = null) //fungsi untuk update data saat tombol simpan ditekan
+    public function ubahsekarang($id = null) //fungsi untuk update data saat tombol simpan ditekan dan menangkap id_user
     {
         $data =  $this->request->getPost(); //mendapatkan data dari view edit data
         $this->aa_userModel->update($id, $data); // mengupdate database berdasarkan data yang didapat
         return redirect()->to(base_url('/user'))->with('success', 'Data Berhasil Diupdate');
+    }
+
+    public function hapususer($id = null) //fungsi untuk delete data saat tombol simpan ditekan dan menangkap id_user
+    {
+        $this->aa_userModel->delete($id); // menghapus database berdasarkan data yang didapat
+        return redirect()->to(base_url('/user'))->with('success', 'Data Berhasil Diupdate');
+    }
+
+    public function resetpasword()
+    {
+        echo 'reset pasword';
     }
 }

@@ -52,8 +52,8 @@
                             <td><?= $isi->nama_level ?></td>
                             <td>
                                 <a href="<?= base_url('user/ubah/' . $isi->id_user); ?>" class="btn btn-warning btn-sm text-uppercase fw-bold" type="submit">edit</a>
-                                <a href="" class="btn btn-danger btn-sm text-uppercase fw-bold" type="submit">Hapus</a>
-                                <a href="" class="btn btn-primary btn-sm text-uppercase fw-bold" type="submit">Reset Pasword</a>
+                                <a href="<?= base_url('user/hapususer/' . $isi->id_user); ?>" class="btn btn-danger btn-sm text-uppercase fw-bold" type="submit">Hapus</a>
+                                <a href="" class="btn btn-primary btn-sm " type="submit" data-toggle="modal" data-target="#resetPasword">Reset Pasword</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -63,6 +63,7 @@
     </div>
 </div>
 
+<!-- Skrip modal untuk tambah data -->
 <!-- Modal, skrip ini untuk membuat pop out dengan menekan tombol  triger -->
 <!-- kita contek dari dokumentasi bootstrap 4 -->
 <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -103,6 +104,7 @@
                         </select>
 
                     </div>
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">BATAL</button>
@@ -111,5 +113,39 @@
         </div>
     </div>
 </div>
+
+<!-- Skirp modal untuk reset pasword -->
+<form method="post" action="<?= base_url('user/resetpasword/'); ?>">
+    <div class="modal fade" id="resetPasword" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">RESET PASWORD</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+
+                    <div class="form-group">
+                        <label>User Name</label>
+                        <input type="text" name="user_name" class="form-control" value="">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Pasword baru</label>
+                        <input type="password" name="pasword" class="form-control">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">BATAL</button>
+                    <button type="submit" class="btn btn-primary">SIMPAN</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
 
 <?= $this->include('layout/footer'); ?>
