@@ -8,4 +8,5 @@ class Aa_user_levelModel extends Model
 {
     protected $table = 'aa_user_level'; //daftarkan nama tabel disini
     protected $primaryKey = 'id'; //daftarkan field primari key disini
+    protected $allowedFields = ['nama_level', 'id_level'];
 }
