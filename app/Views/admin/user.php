@@ -8,21 +8,27 @@
     <!-- bootstrap membagi kolom dalam layar menjadi 12 kolom. tinggal kita bagi dengan class col-sm-xx, xx jumlah kolom -->
     <!-- misal 1 baris kita bagi 2 kolom sama besar, col-sm-6 dan col-sm-6 jadi total tetap 12 colom -->
     <div class="row mt-3">
-        <div class="col-sm-6 mr-auto">
+        <!-- <div class="col-sm-2 mr-auto"> -->
+        <div class="col-sm-2 ">
             <h4>DAFTAR USER</h4>
         </div>
+        <div class="col-sm-2 ">
+            <!-- tombol triger untuk modal -->
+            <button type="button" class="btn btn-success btn-sm text-uppercase fw-bold ml-5" data-toggle="modal" data-target="#userModal">
+                Tambah User
+            </button>
+        </div>
+
+        <div class="col-sm-2 mr-auto">
+            <!-- tombol untuk tambah role user atau user level -->
+            <a href="<?= base_url('user_level'); ?>" class="btn btn-primary btn-sm">TAMBAH ROLE</a>
+        </div>
+
         <div class="col-sm-4">
             <form class="form-inline ml-5">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success " type="submit">Search</button>
             </form>
-
-        </div>
-        <div class="col-sm-2">
-            <!-- tombol triger untuk modal -->
-            <button type="button" class="btn btn-success btn-sm text-uppercase fw-bold ml-5" data-toggle="modal" data-target="#userModal">
-                Tambah User
-            </button>
 
         </div>
     </div>
@@ -56,7 +62,7 @@
                                 <a href="<?= base_url('user/ubah/' . $isi->id_user); ?>" class="btn btn-warning btn-sm text-uppercase fw-bold" type="submit">edit</a>
                                 <a href="<?= base_url('user/hapususer/' . $isi->id_user); ?>" class="btn btn-danger btn-sm text-uppercase fw-bold" type="submit">Hapus</a>
                                 <a href="<?= base_url('user/resetpasword/' . $isi->id_user); ?>" class="btn btn-success btn-sm text-uppercase fw-bold" type="submit">reset Pswd</a>
-                                <a href="<?= base_url('user/enableuser/' . $isi->id_user); ?>" class="btn <?= $isi->enable_user ? 'btn-primary' : 'btn-secondary' ?>  btn-sm text-uppercase fw-bold" type="submit"><?= $isi->enable_user ? 'Disable' : 'Enable' ?></a>
+                                <a href="<?= base_url('user/enableuser/' . $isi->id_user); ?>/<?= $isi->enable_user ? '0' : '1' ?>" class="btn <?= $isi->enable_user ? 'btn-primary' : 'btn-secondary' ?>  btn-sm text-uppercase fw-bold" type="submit"><?= $isi->enable_user ? 'Disable' : 'Enable' ?></a>
                                 <!-- if satu baris untuk logika warna dan tombol enable-->
 
 
