@@ -9,7 +9,7 @@
     <!-- misal 1 baris kita bagi 2 kolom sama besar, col-sm-6 dan col-sm-6 jadi total tetap 12 colom -->
     <div class="row mt-4">
         <!-- <div class="col-sm-2 mr-auto"> -->
-        <div class="col-sm-2 ">
+        <div class="col-sm-3 ">
             <h4>DAFTAR USER LEVEL</h4>
         </div>
         <div class="col-sm-4 mr-atuo">
