@@ -4,11 +4,24 @@
 <?= $this->include('layout/navbar_admin'); ?>
 
 <div class="container">
+
+    <?php if ($ok) : ?>
+        <div class="row">
+            <div class="col">
+                <div class="alert alert-danger" role="alert">
+                    Data berhasil di Hapus !!
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
+
+
     <!-- membuat row atau baris dibawah navbar -->
     <!-- bootstrap membagi kolom dalam layar menjadi 12 kolom. tinggal kita bagi dengan class col-sm-xx, xx jumlah kolom -->
     <!-- misal 1 baris kita bagi 2 kolom sama besar, col-sm-6 dan col-sm-6 jadi total tetap 12 colom -->
     <div class="row mt-4">
         <!-- <div class="col-sm-2 mr-auto"> -->
+
         <div class="col-sm-3 ">
             <h4>DAFTAR USER LEVEL</h4>
         </div>

@@ -14,12 +14,14 @@ class User_level extends BaseController
 
         $this->aa_user_levelModel = new Aa_user_levelModel(); //membuat objecb baru bernama $aa_userModel
     }
-    public function index()
+    public function index($ok = null)
     {
         $level =  $this->aa_user_levelModel->findAll(); //membuat variabel level dan diisi semua data dari tabel aa_user_level
+
         $data = [ //membuat variabel data untuk dikirim ke view user
             'title' => 'Daftar User',
-            'level' => $level // 'level' berisi semua data dari table aa_user_level
+            'level' => $level, // 'level' berisi semua data dari table aa_user_level
+            'ok' => $ok
         ];
 
         return view('admin/user_level', $data); //kirim $data ke view user_level 
@@ -55,6 +57,8 @@ class User_level extends BaseController
     public function hapuslevel($id = null) //fungsi untuk delete data saat tombol simpan ditekan dan menangkap id_user
     {
         $this->aa_user_levelModel->delete($id); // menghapus database berdasarkan data yang didapat
-        return redirect()->to(base_url('/user_level'))->with('success', 'Data Berhasil Diupdate'); //jika berhasil tamilkan laman user
+        return redirect()->to(base_url('/user_level'))->with(1, 1); //jika berhasil tamilkan laman user
+
+
     }
 }
