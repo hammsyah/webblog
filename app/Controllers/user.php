@@ -20,10 +20,11 @@ class User extends BaseController
     {
 
         $user = $this->aa_userModel->ambilSemua(); //membuat variabel user dan diisi dari data hasil join tabel user dan user_level. join dilakukan pada model aa_userModel
-
+        $level =  $this->aa_user_levelModel->findAll(); //membuat variabel level dan diisi semua data dari tabel aa_user_level
         $data = [ //membuat variabel data untuk dikirim ke view user
             'title' => 'Daftar User',
-            'user' => $user
+            'user' => $user,
+            'level' => $level
         ];
 
         return view('admin/user', $data); //kirim $data ke view user
@@ -65,8 +66,20 @@ class User extends BaseController
         return redirect()->to(base_url('/user'))->with('success', 'Data Berhasil Diupdate');
     }
 
-    public function resetpasword()
+    public function resetpasword($id_user)
     {
-        echo 'reset pasword';
+        $user = $this->aa_userModel->find($id_user); //membuat variabel user dan diisi dari tabel user berdasar id
+        $data = [
+            'user' => $user
+        ];
+
+        return view('admin/resetPasword', $data); //kirim $data ke view resetPasword
+    }
+
+    public function resetpaswordsekarang($id_user = null)
+    {
+        $data =  $this->request->getPost(); //mendapatkan data dari view edit data
+        $this->aa_userModel->update($id_user, $data); // mengupdate database berdasarkan data yang didapat
+        return redirect()->to(base_url('/user'))->with('success', 'Data Berhasil Diupdate');
     }
 }
