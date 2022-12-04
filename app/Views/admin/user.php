@@ -60,7 +60,7 @@
 
                             <td>
                                 <a href="<?= base_url('user/ubah/' . $isi->id_user); ?>" class="btn btn-warning btn-sm text-uppercase fw-bold" type="submit">edit</a>
-                                <a href="<?= base_url('user/hapususer/' . $isi->id_user); ?>" class="btn btn-danger btn-sm text-uppercase fw-bold" type="submit">Hapus</a>
+                                <a href="<?= base_url('user/hapususer/' . $isi->id_user); ?>" class="btn btn-danger btn-sm text-uppercase fw-bold" type="submit" onclick="return confirm('Yakin Hapus?')">Hapus</a>
                                 <a href="<?= base_url('user/resetpasword/' . $isi->id_user); ?>" class="btn btn-success btn-sm text-uppercase fw-bold" type="submit">reset Pswd</a>
                                 <a href="<?= base_url('user/enableuser/' . $isi->id_user); ?>/<?= $isi->enable_user ? '0' : '1' ?>" class="btn <?= $isi->enable_user ? 'btn-primary' : 'btn-secondary' ?>  btn-sm text-uppercase fw-bold" type="submit"><?= $isi->enable_user ? 'Disable' : 'Enable' ?></a>
                                 <!-- if satu baris untuk logika warna dan tombol enable-->

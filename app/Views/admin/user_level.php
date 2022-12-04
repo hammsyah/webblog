@@ -53,7 +53,7 @@
 
                             <td>
                                 <a href="<?= base_url('user_level/ubah/' . $isi['id']); ?>" class="btn btn-warning btn-sm text-uppercase fw-bold" type="submit">edit</a>
-                                <a href="<?= base_url('user_level/hapuslevel/' . $isi['id']); ?>" class="btn btn-danger btn-sm text-uppercase fw-bold" type="submit">Hapus</a>
+                                <a href="<?= base_url('user_level/hapuslevel/' . $isi['id']); ?>" class="btn btn-danger btn-sm text-uppercase fw-bold" type="submit" onclick="return confirm('Yakin Hapus?')">Hapus</a>
                             </td>
 
                         </tr>
@@ -67,7 +67,7 @@
 <!-- Skrip modal untuk tambah role-->
 <!-- Modal, skrip ini untuk membuat pop out dengan menekan tombol  triger -->
 <!-- kita contek dari dokumentasi bootstrap 4 -->
-<form method="post" action="<?= base_url('user_level/tambah'); ?>">
+<form class="needs-validation" novalidate method="post" action="<?= base_url('user_level/tambah'); ?>">
     <div class="modal fade" id="userlevelModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -82,7 +82,10 @@
 
                     <div class="form-group">
                         <label>Nama Level</label>
-                        <input type="text" name="nama_level" class="form-control">
+                        <input type="text" name="nama_level" class="form-control" required>
+                        <div class="valid-feedback">
+                            bagus
+                        </div>
                     </div>
 
                     <div class="form-group">
