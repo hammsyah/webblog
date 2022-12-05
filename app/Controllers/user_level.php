@@ -57,7 +57,7 @@ class User_level extends BaseController
     public function hapuslevel($id = null) //fungsi untuk delete data saat tombol simpan ditekan dan menangkap id_user
     {
         $this->aa_user_levelModel->delete($id); // menghapus database berdasarkan data yang didapat
-        return redirect()->to(base_url('/user_level'))->with(1, 1); //jika berhasil tamilkan laman user
+        return redirect()->to(base_url('/user_level/index/1'))->with(1, 1); //jika berhasil tamilkan laman user
 
 
     }

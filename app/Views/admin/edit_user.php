@@ -31,7 +31,10 @@
 
                         <?php endforeach; ?>
                     </select>
-
+                    <div class="form-group">
+                        <label>Keterangan</label>
+                        <input type="text" name="keterangan" class="form-control" value="<?= $user->keterangan; ?>">
+                    </div>
                 </div>
                 <div class="col">
                     <a href="<?= base_Url('user'); ?>" type="button" class="btn btn-secondary"> BATAL </a>
