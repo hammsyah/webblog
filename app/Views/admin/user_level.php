@@ -5,15 +5,37 @@
 
 <div class="container">
 
-    <?php if ($ok) : ?>
-        <div class="row">
-            <div class="col">
-                <div class="alert alert-danger" role="alert">
-                    Data berhasil di Hapus !!
+    <!-- alert untuk pesan sukses operasi delet, tambah dan edit -->
+    <div class="row">
+        <div class="col">
+            <?php
+            if (session()->getFlashData('success')) {
+            ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <?= session()->getFlashData('success') ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-            </div>
+            <?php
+            }
+            ?>
+
+            <?php
+            if (session()->getFlashData('danger')) {
+            ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <?= session()->getFlashData('danger') ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <?php
+            }
+            ?>
         </div>
-    <?php endif; ?>
+    </div>
+
 
 
     <!-- membuat row atau baris dibawah navbar -->

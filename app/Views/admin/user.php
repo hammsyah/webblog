@@ -4,6 +4,35 @@
 <?= $this->include('layout/navbar_admin'); ?>
 
 <div class="container">
+    <div class="row">
+        <div class="col">
+            <?php
+            if (session()->getFlashData('success')) {
+            ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <?= session()->getFlashData('success') ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <?php
+            }
+            ?>
+
+            <?php
+            if (session()->getFlashData('danger')) {
+            ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <?= session()->getFlashData('danger') ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <?php
+            }
+            ?>
+        </div>
+    </div>
     <!-- membuat row atau baris dibawah navbar -->
     <!-- bootstrap membagi kolom dalam layar menjadi 12 kolom. tinggal kita bagi dengan class col-sm-xx, xx jumlah kolom -->
     <!-- misal 1 baris kita bagi 2 kolom sama besar, col-sm-6 dan col-sm-6 jadi total tetap 12 colom -->

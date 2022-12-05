@@ -31,7 +31,7 @@ class User_level extends BaseController
     {
         $data = $this->request->getPost(); //mengambil data dari submit tambah data
         $this->aa_user_levelModel->insert($data); // insert data ke data base
-        return redirect()->to(base_url('user_level'))->with('SUKSES', 'Data Berhasil disimpan'); //kembalikan ke halaman daftar user setelah berhasil insert
+        return redirect()->to(base_url('user_level'))->with('success', 'Data Berhasil disimpan'); //kembalikan ke halaman daftar user setelah berhasil insert
     }
 
     public function ubah($id) //fungsi untuk menampilkan halaman edit level sekaligus mengirimkan data sesuai yang dipilih
@@ -57,7 +57,7 @@ class User_level extends BaseController
     public function hapuslevel($id = null) //fungsi untuk delete data saat tombol simpan ditekan dan menangkap id_user
     {
         $this->aa_user_levelModel->delete($id); // menghapus database berdasarkan data yang didapat
-        return redirect()->to(base_url('/user_level/index/1'))->with(1, 1); //jika berhasil tamilkan laman user
+        return redirect()->to(base_url('/user_level'))->with('danger', 'Data Berhasil Dihapus'); //jika berhasil tamilkan laman user
 
 
     }

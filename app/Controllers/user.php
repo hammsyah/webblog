@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Aa_userModel;
 use App\Models\Aa_user_levelModel;
-use PhpParser\Node\Expr\FuncCall;
+//use PhpParser\Node\Expr\FuncCall;
 
 class User extends BaseController
 {
@@ -34,7 +34,7 @@ class User extends BaseController
     {
         $data = $this->request->getPost(); //mengambil data dari submit tambah data
         $this->aa_userModel->insert($data); // insert data ke data base
-        return redirect()->to(base_url('user'))->with('SUKSES', 'Data Berhasil disimpan'); //kembalikan ke halaman daftar user setelah berhasil insert
+        return redirect()->to(base_url('user'))->with('success', 'Data Berhasil disimpan'); //kembalikan ke halaman daftar user setelah berhasil insert
     }
 
     public function ubah($id_user) //fungsi untuk menampilkan halaman edit user sekaligus mengirimkan data sesuai yang dipilih
@@ -64,7 +64,7 @@ class User extends BaseController
     public function hapususer($id = null) //fungsi untuk delete data saat tombol simpan ditekan dan menangkap id_user
     {
         $this->aa_userModel->delete($id); // menghapus database berdasarkan data yang didapat
-        return redirect()->to(base_url('/user'))->with('success', 'Data Berhasil Diupdate'); //jika berhasil tamilkan laman user
+        return redirect()->to(base_url('/user'))->with('danger', 'Data Berhasil Hapus'); //jika berhasil tamilkan laman user
     }
 
     public function resetpasword($id_user)
@@ -91,6 +91,6 @@ class User extends BaseController
             'enable_user' => $en //membuat index 'enable_user' samakan dengan nama filed database yang diupdate
         ];
         $this->aa_userModel->update($id_user, $data); // mengupdate database berdasarkan data yang didapat
-        return redirect()->to(base_url('/user'))->with('success', 'Data Berhasil Diupdate'); //jika berhasil tamilkan laman user
+        return redirect()->to(base_url('/user')); //->with('success', 'Data Berhasil Diupdate'); //jika berhasil tamilkan laman user
     }
 }
