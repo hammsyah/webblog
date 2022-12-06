@@ -4,10 +4,11 @@
 <?= $this->include('layout/navbar_admin'); ?>
 
 <div class="container">
+    <!-- membuat alert untuk delet, update, tambah dll -->
     <div class="row">
         <div class="col">
             <?php
-            if (session()->getFlashData('success')) {
+            if (session()->getFlashData('success')) { //success -> diambil dari controller fungsi with()
             ?>
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <?= session()->getFlashData('success') ?>
