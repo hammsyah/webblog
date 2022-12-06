@@ -1,7 +1,6 @@
-<!-- panggil header disini -->
-<?= $this->include('layout/header'); ?>
-<!-- panggil navbar admin disini -->
-<?= $this->include('layout/navbar_admin'); ?>
+<?= $this->extend('/layout/template'); ?>
+
+<?= $this->section('isikonten'); ?>
 
 <div class="container">
     <!-- membuat alert untuk delet, update, tambah dll -->
@@ -159,4 +158,4 @@
     </div>
 </form>
 
-<?= $this->include('layout/footer'); ?>
+<?= $this->endSection(); ?>

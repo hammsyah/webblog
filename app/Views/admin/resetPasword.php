@@ -1,7 +1,6 @@
-<!-- panggil header disini -->
-<?= $this->include('layout/header'); ?>
-<!-- panggil navbar admin disini -->
-<?= $this->include('layout/navbar_admin'); ?>
+<?= $this->extend('/layout/template'); ?>
+
+<?= $this->section('isikonten'); ?>
 
 <div class="container">
     <!-- membuat row atau baris dibawah navbar -->
@@ -37,4 +36,4 @@
 
 
 
-<?= $this->include('layout/footer'); ?>
+<?= $this->endSection(); ?>

@@ -1,8 +1,6 @@
-<!-- panggil header disini -->
-<?= $this->include('layout/header'); ?>
-<!-- panggil navbar admin disini -->
-<?= $this->include('layout/navbar_admin'); ?>
+<?= $this->extend('/layout/template'); ?>
 
+<?= $this->section('isikonten'); ?>
 <div class="container">
 
     <!-- alert untuk pesan sukses operasi delet, tambah dan edit -->
@@ -107,7 +105,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">TAMBAH LEVEL</h5>
+                    <h5 class="modal-title glyphicon glyphicon-plus" id="exampleModalLabel">TAMBAH LEVEL</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -138,4 +136,4 @@
     </div>
 </form>
 
-<?= $this->include('layout/footer'); ?>
+<?= $this->endSection(); ?>
