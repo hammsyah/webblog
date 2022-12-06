@@ -45,8 +45,12 @@
 
             <a href="<?= base_url('/') ?>" class="logo d-flex align-items-center">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
-                <!-- <img src="<?= base_url('/frontend/assets/img') ?>/logo.png" alt=""> -->
-                <h1>WebBlog</h1>
+                <img src="<?= base_url('/assets/images') ?>/logo.png" alt="">
+                <h1>Web</h1>
+                <h1>
+                    <font color="green">Blog</font>
+                </h1>
+
             </a>
 
             <nav id="navbar" class="navbar">
