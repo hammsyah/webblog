@@ -36,13 +36,13 @@
 
     <div class="x_panel">
         <div class="x_title">
-            <h2>Default Example <small>Users</small></h2>
+            <h2>Daftar User <small>semua</small></h2>
             <!-- tombol triger untuk modal -->
-            <button type="button" class="btn btn-success btn-sm text-uppercase fw-bold ml-5" data-toggle="modal" data-target="#userModal">
+            <!-- <button type="button" class="btn btn-round btn-primary btn-sm text-uppercase fw-bold ml-5" data-toggle="modal" data-target="#userModal">
                 Tambah User
-            </button>
-            <!-- tombol untuk tambah role user atau user level -->
-            <a href="<?= base_url('user_level'); ?>" class="btn btn-primary btn-sm">TAMBAH ROLE</a>
+            </button> -->
+
+            <a href="<?= base_url('user/mautambah'); ?>" type="button" class="btn btn-round btn-primary btn-sm text-uppercase fw-bold ml-5">TAMBAH USER</a>
 
             <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -71,7 +71,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Real Name</th>
                                 <th scope="col">User Name</th>
-                                <th scope="col">Role</th>
+                                <th scope="col">Level User</th>
                                 <th scope="col">Aksi</th>
 
                             </tr>
@@ -105,61 +105,5 @@
         </div>
 
     </div>
-
-
-    <!-- Skrip modal untuk tambah data -->
-    <!-- Modal, skrip ini untuk membuat pop out dengan menekan tombol  triger -->
-    <!-- kita contek dari dokumentasi bootstrap 4 -->
-    <form method="post" action="<?= base_url('user/tambah'); ?>">
-        <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">TAMBAH USER</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-
-
-                        <div class="form-group">
-                            <label>Real Name</label>
-                            <input type="text" name="realname" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label>User Name</label>
-                            <input type="text" name="user_name" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Pasword</label>
-                            <input type="password" name="pasword" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Role</label>
-                            <select name="fid_level" class="form-control" required>
-                                <option value="" hidden></option>
-                                <?php foreach ($level as $lev) : ?>
-                                    <option value="<?= $lev['id_level']; ?>"><?= $lev['nama_level']; ?></option>
-                                <?php endforeach; ?>
-                                <option value=""></option>
-                            </select>
-
-                        </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">BATAL</button>
-                        <button type="submit" class="btn btn-primary">SIMPAN</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-
 </div>
-
 <?= $this->endSection(); ?>

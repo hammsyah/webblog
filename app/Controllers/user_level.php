@@ -39,11 +39,12 @@ class User_level extends BaseController
         $level = $this->aa_user_levelModel->find($id); //membuat variabel user dan diisi dari tabel user_level berdasar id
 
         $data = [
-            'title' => 'Update User', // untuk title tab
+            'title' => 'Update Level', // untuk title tab
             'level' => $level // mengisi variabel level dengan level
         ];
 
         return view('admin/edit_user_level', $data); //kirim $data ke view edit_user
+
 
     }
 

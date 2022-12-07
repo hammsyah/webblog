@@ -30,6 +30,15 @@ class User extends BaseController
         return view('admin/user', $data); //kirim $data ke view user
     }
 
+    public function mautambah()
+    {
+        $level =  $this->aa_user_levelModel->findAll(); //membuat variabel level dan diisi semua data dari tabel aa_user_level
+        $data = [
+            'title' => 'Tambah User',
+            'level' => $level
+        ];
+        return view('admin/tambah_user', $data);
+    }
     public function tambah() //fungsi untuk menyimpan data ke database
     {
         $data = $this->request->getPost(); //mengambil data dari submit tambah data

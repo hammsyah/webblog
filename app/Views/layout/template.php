@@ -81,7 +81,12 @@
                                 <li><a href="<?= base_url('/artikel'); ?>"> <i class="fa fa-pencil"></i> Artikel </a>
                                 </li>
 
-                                <li><a href="<?= base_url('/user'); ?>"> <i class="fa fa-group"></i> Manajemen User </a>
+                                <li><a><i class="fa fa-group"></i> Manajemen User <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="<?= base_url('/user'); ?>">Daftar User</a></li>
+                                        <li><a href="<?= base_url('/user_level'); ?>">Level User</a></li>
+
+                                    </ul>
                                 </li>
 
                             </ul>
@@ -150,13 +155,15 @@
             <!-- footer content -->
             <footer>
                 <div class="pull-right">
-                    Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                    WebBlog - Web dibuat oleh tim 7 <a href="">WebbLog</a>
                 </div>
                 <div class="clearfix"></div>
             </footer>
             <!-- /footer content -->
         </div>
     </div>
+
+
 
     <!-- jQuery ok -->
     <script src="<?= base_url('/assets'); ?>/js/jquery.min.js"></script>
@@ -211,7 +218,6 @@
     <script src="<?= base_url('/assets'); ?>/js/jszip.min.js"></script>
     <script src="<?= base_url('/assets'); ?>/js/pdfmake.min.js"></script>
     <script src="<?= base_url('/assets'); ?>/js/vfs_fonts.js"></script>
-
 
     <!-- Custom Theme Scripts ok -->
     <script src="<?= base_url('/assets'); ?>/js/custom.min.js"></script>
