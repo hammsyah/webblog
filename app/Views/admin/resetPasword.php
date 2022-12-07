@@ -10,6 +10,7 @@
 
 
             <form method="post" action="<?= base_url('user/resetpaswordsekarang/' . $user->id_user); ?>">
+                <?= csrf_field(); ?>
                 <div class="form-group">
                     <label>Real Name</label>
                     <input type="text" name="realname" class="form-control" value="<?= $user->realname; ?>" readonly>

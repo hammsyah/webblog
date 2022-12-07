@@ -21,6 +21,8 @@
                 <div class="x_content">
                     <form class="" action="<?= base_url('user/tambah'); ?>" method="post" novalidate>
 
+                        <?= csrf_field(); ?>
+
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">Real Name<span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
@@ -34,7 +36,6 @@
                                 <input type="email" name="user_name" class="form-control">
                             </div>
                         </div>
-
 
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">Level<span class="required">*</span></label>
@@ -50,7 +51,7 @@
                         </div>
 
 
-                        <div class="field item form-group">
+                        <div c\lass="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">Password<span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
                                 <input class="form-control" type="password" id="password1" name="pasword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}" title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character" required />
@@ -62,21 +63,16 @@
                             </div>
                         </div>
 
-                        <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">Repeat password<span class="required">*</span></label>
-                            <div class="col-md-6 col-sm-6">
-                                <input class="form-control" type="password" name="pasword2" />
-                            </div>
-                        </div>
 
                         <div class="ln_solid">
                             <div class="form-group">
-                                <div class="col-md-6 offset-md-3">
+                                <div class="col-md-6 offset-md-3 mt-2">
                                     <button type='submit' class="btn btn-primary">SIMPAN</button>
                                     <button type='reset' class="btn btn-success">RESET</button>
                                 </div>
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>

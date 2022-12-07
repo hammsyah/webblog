@@ -100,6 +100,7 @@
     <!-- Modal, skrip ini untuk membuat pop out dengan menekan tombol  triger -->
     <!-- kita contek dari dokumentasi bootstrap 4 -->
     <form novalidate class="" method="post" action="<?= base_url('user_level/tambah'); ?>">
+        <?= csrf_field(); ?>
         <div class="modal fade" id="userlevelModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">

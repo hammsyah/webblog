@@ -10,7 +10,7 @@
 
 
             <form method="post" action="<?= base_url('user_level/ubahsekarang/' . $level['id']); ?>">
-
+                <?= csrf_field(); ?>
                 <div class="form-group">
                     <label>Nama Level</label>
                     <input type="text" name="nama_level" class="form-control" value="<?= $level['nama_level']; ?>">
