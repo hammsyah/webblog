@@ -36,6 +36,10 @@ class User_level extends BaseController
 
     public function ubah($id) //fungsi untuk menampilkan halaman edit level sekaligus mengirimkan data sesuai yang dipilih
     {
+        //validasi input
+        if(!$this->validate([
+'nama_level' => 
+        ]));
         $level = $this->aa_user_levelModel->find($id); //membuat variabel user dan diisi dari tabel user_level berdasar id
 
         $data = [

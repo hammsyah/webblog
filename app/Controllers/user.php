@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Aa_userModel;
 use App\Models\Aa_user_levelModel;
-//use PhpParser\Node\Expr\FuncCall;
+
 
 class User extends BaseController
 {
@@ -30,17 +30,53 @@ class User extends BaseController
         return view('admin/user', $data); //kirim $data ke view user
     }
 
-    public function mautambah()
+    public function mautambah() //fungsi untuk menangani input data
     {
-        $level =  $this->aa_user_levelModel->findAll(); //membuat variabel level dan diisi semua data dari tabel aa_user_level
+        session(); //aktifkan session untuk mengambil data dalam session 'dari function tambah()'
+        $level =  $this->aa_user_levelModel->findAll(); //membuat variabel level dan diisi semua data dari tabel aa_user_level, nanti digunakan untuk opsi level user
         $data = [
             'title' => 'Tambah User',
-            'level' => $level
+            'level' => $level,
+            'salahnya' => \Config\Services::validation() //mengambil data dari sesion
         ];
         return view('admin/tambah_user', $data);
     }
+
     public function tambah() //fungsi untuk menyimpan data ke database
     {
+        //validasi input, cek input sudah sesuai ketentuan apa belum
+        if (!$this->validate([ //untuk membuat validasi form
+            'user_name' => [ //name dari input
+                'rules' => 'required|is_unique[aa_user.user_name]', //syarat yang ditentukan
+                'errors' => [
+                    'required' => 'User Name atau email harus diisi', //pesan jika salah berdasarkan syarat
+                    'is_unique' => 'User Name atau email sudah terdaftar' //pesan jika salah berdasarkan syarat
+                ]
+            ],
+            'realname' => [ //namae dari input
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Real Name Tidak Boleh Kosong'
+                ]
+            ],
+            'pasword' => [ //name dari input
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Pasword Tidak Boleh Kosong'
+                ]
+            ]
+        ])) {
+            $salahnya = \Config\Services::validation(); //mengambil semua pesan eror dan masukkan ke dalam variable $salahnya
+            return redirect()->to('/user/mautambah')->withInput()->with('salahnya', $salahnya);
+            //redirect dengan menyertakan data:
+            //withInput = semua data yang dinputkan dikembalikan lagi. Fungsi untuk menangkpa datanya adalah old('name') pada view
+            //with = megirim data speri array
+
+            //data dari withInput dan with disimpan dalam session, sehingga untuk mengambilnya harus dijalankan session ( pada function tambah())
+        }
+
+        //jika semua input valid baru data disimpan ke database dengan code dibawah ini
+
         $data = $this->request->getPost(); //mengambil data dari submit tambah data
         $this->aa_userModel->insert($data); // insert data ke data base
         return redirect()->to(base_url('user'))->with('success', 'Data Berhasil disimpan'); //kembalikan ke halaman daftar user setelah berhasil insert
@@ -103,3 +139,6 @@ class User extends BaseController
         return redirect()->to(base_url('/user')); //->with('success', 'Data Berhasil Diupdate'); //jika berhasil tamilkan laman user
     }
 }
+
+//tutorial form validation: https://www.youtube.com/watch?v=IfMWgZf-To0
+//tutorial alert: 

@@ -26,14 +26,20 @@
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">Real Name<span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
-                                <input type="text" name="realname" class="form-control">
+                                <input type="text" name="realname" class="form-control <?= ($salahnya->hasError('realname')) ? 'is-invalid' : ''; ?>" placeholder="Prayogo Conto" value="<?= old('realname'); ?>">
+                                <div id="validationServer04Feedback" class="invalid-feedback">
+                                    <?= $salahnya->getError('realname'); ?>
+                                </div>
                             </div>
                         </div>
 
                         <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">email<span class="required">*</span></label>
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">email / User Name<span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
-                                <input type="email" name="user_name" class="form-control">
+                                <input type="email" name="user_name" class="form-control <?= ($salahnya->hasError('user_name')) ? 'is-invalid' : ''; ?>" placeholder="contoh@webblog.com" value="<?= old('user_name'); ?>">
+                                <div id="validationServer04Feedback" class="invalid-feedback">
+                                    <?= $salahnya->getError('user_name'); ?>
+                                </div>
                             </div>
                         </div>
 
@@ -54,14 +60,17 @@
                         <div c\lass="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">Password<span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6">
-                                <input class="form-control" type="password" id="password1" name="pasword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}" title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character" required />
-
+                                <input class="form-control <?= ($salahnya->hasError('pasword')) ? 'is-invalid' : ''; ?>" type="password" id="password1" name="pasword" required value="<?= old('pasword'); ?>">
+                                <div id="validationServer04Feedback" class="invalid-feedback">
+                                    <?= $salahnya->getError('pasword'); ?>
+                                </div>
                                 <span style="position: absolute;right:15px;top:7px;" onclick="hideshow()">
                                     <i id="slash" class="fa fa-eye-slash"></i>
                                     <i id="eye" class="fa fa-eye"></i>
                                 </span>
                             </div>
                         </div>
+
 
 
                         <div class="ln_solid">
@@ -71,6 +80,7 @@
                                     <button type='reset' class="btn btn-success">RESET</button>
                                 </div>
                             </div>
+
                         </div>
 
                     </form>
