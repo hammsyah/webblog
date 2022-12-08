@@ -64,6 +64,12 @@ class User extends BaseController
                 'errors' => [
                     'required' => 'Pasword Tidak Boleh Kosong'
                 ]
+            ],
+            'pasword2' => [ //name dari input
+                'rules' => 'matches[pasword]',
+                'errors' => [
+                    'matches' => 'isian samakan dengan password'
+                ]
             ]
         ])) {
             $salahnya = \Config\Services::validation(); //mengambil semua pesan eror dan masukkan ke dalam variable $salahnya
@@ -79,7 +85,7 @@ class User extends BaseController
 
         $data = $this->request->getPost(); //mengambil data dari submit tambah data
         $this->aa_userModel->insert($data); // insert data ke data base
-        return redirect()->to(base_url('user'))->with('success', 'Data Berhasil disimpan'); //kembalikan ke halaman daftar user setelah berhasil insert
+        return redirect()->to(base_url('user/mautambah'))->with('success', 'Data Berhasil disimpan'); //kembalikan ke halaman daftar user setelah berhasil insert
     }
 
     public function ubah($id_user) //fungsi untuk menampilkan halaman edit user sekaligus mengirimkan data sesuai yang dipilih
@@ -114,10 +120,12 @@ class User extends BaseController
 
     public function resetpasword($id_user)
     {
+        session(); //aktifkan session untuk mengambil data dalam session 'dari function resetpasworsekarang()'
         $user = $this->aa_userModel->find($id_user); //membuat variabel user dan diisi dari tabel user berdasar id
         $data = [ //buat array
             'title' => 'Reset Password',
-            'user' => $user
+            'user' => $user,
+            'salahnya' => \Config\Services::validation() //mengambil data dari sesion
         ];
 
         return view('admin/resetPasword', $data); //kirim $data ke view resetPasword
@@ -125,9 +133,36 @@ class User extends BaseController
 
     public function resetpaswordsekarang($id_user = null) //aksi saat tombol simpan di tekan
     {
+        //validasi input, cek input sudah sesuai ketentuan apa belum
+        if (!$this->validate([ //untuk membuat validasi form
+
+            'pasword' => [ //name dari input
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Pasword Tidak Boleh Kosong'
+                ]
+            ],
+            'pasword2' => [ //name dari input
+                'rules' => 'matches[pasword]',
+                'errors' => [
+                    'matches' => 'isian samakan dengan password'
+                ]
+            ]
+        ])) {
+            $salahnya = \Config\Services::validation(); //mengambil semua pesan eror dan masukkan ke dalam variable $salahnya
+            return redirect()->to('/user/resetpasword/' . $id_user)->withInput()->with('salahnya', $salahnya);
+            //redirect dengan menyertakan data:
+            //withInput = semua data yang dinputkan dikembalikan lagi. Fungsi untuk menangkpa datanya adalah old('name') pada view
+            //with = megirim data speri array
+
+            //data dari withInput dan with disimpan dalam session, sehingga untuk mengambilnya harus dijalankan session ( pada function tambah())
+        }
+
+        //jika semua input valid baru data disimpan ke database dengan code dibawah ini
+
         $data =  $this->request->getPost(); //mendapatkan data dari view reset password
         $this->aa_userModel->update($id_user, $data); // mengupdate database berdasarkan data yang didapat
-        return redirect()->to(base_url('/user'))->with('success', 'Data Berhasil Diupdate'); //jika berhasil tamilkan laman user
+        return redirect()->to(base_url('/user'))->with('success', 'Password Berhasil di RESET'); //jika berhasil tamilkan laman user
     }
 
     public function enableuser($id_user, $en) //aksi dari tombol Enabel / Disabel dan menangkap data

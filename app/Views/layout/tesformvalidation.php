@@ -2,7 +2,7 @@
 <?= $this->section('isikonten'); ?>
 
 <div class="x_content">
-    <form class="" action="" method="post" novalidate>
+    <form class="" action="" method="post" validate>
         <p>For alternative validation library <code>parsleyJS</code> check out in the <a href="form.html">form page</a>
         </p>
         <span class="section">Personal Info</span>

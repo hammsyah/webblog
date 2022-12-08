@@ -163,7 +163,14 @@
         </div>
     </div>
 
-
+    <!-- SKRIP untuk menutup alert sescara otomatis -->
+    <script>
+        window.setTimeout(function() {
+            $(".alert").fadeTo(500, 0).slideUp(500, function() {
+                $(this).remove();
+            });
+        }, 3000); //lama waktu tampil alert 3000 = 3 detik
+    </script>
 
     <!-- jQuery ok -->
     <script src="<?= base_url('/assets'); ?>/js/jquery.min.js"></script>
