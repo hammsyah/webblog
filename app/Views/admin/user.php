@@ -46,7 +46,7 @@
         <div class="x_title">
             <h2>Daftar User <small>semua</small></h2>
             <!-- tombol tambah user -->
-            <a href="<?= base_url('user/mautambah'); ?>" type="button" class="btn btn-round btn-primary btn-sm text-uppercase fw-bold ml-5">TAMBAH USER</a>
+            <a href="<?= base_url('user/mautambah'); ?>" type="button" class="button-70 text-uppercase fw-bold ml-5">TAMBAH USER</a>
 
             <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -91,10 +91,10 @@
                                     <td><?= $isi->nama_level ?></td>
 
                                     <td>
-                                        <a href="<?= base_url('user/ubah/' . $isi->id_user); ?>" class="btn btn-warning btn-sm" type="submit">Edit</a>
-                                        <a href="<?= base_url('user/hapususer/' . $isi->id_user); ?>" class="btn btn-danger btn-sm" type="submit" onclick="return confirm('Yakin Hapus?')">Hapus</a>
-                                        <a href="<?= base_url('user/resetpasword/' . $isi->id_user); ?>" class="btn btn-success btn-sm " type="submit">Reset Pswd</a>
-                                        <a href="<?= base_url('user/enableuser/' . $isi->id_user); ?>/<?= $isi->enable_user ? '0' : '1' ?>" class="btn <?= $isi->enable_user ? 'btn-primary' : 'btn-secondary' ?>  btn-sm" type="submit"><?= $isi->enable_user ? 'Disable' : 'Enable' ?></a>
+                                        <a href="<?= base_url('user/ubah/' . $isi->id_user); ?>" class="badge badge-warning" type="submit">Edit</a>
+                                        <a href="<?= base_url('user/hapususer/' . $isi->id_user); ?>" class="badge badge-danger" type="submit" onclick="return confirm('Yakin Hapus?')">Hapus</a>
+                                        <a href="<?= base_url('user/resetpasword/' . $isi->id_user); ?>" class="badge badge-success " type="submit">Reset Pswd</a>
+                                        <a href="<?= base_url('user/enableuser/' . $isi->id_user); ?>/<?= $isi->enable_user ? '0' : '1' ?>" class="badge <?= $isi->enable_user ? 'badge-primary' : 'badge-secondary' ?>  " type="submit"><?= $isi->enable_user ? 'Disable' : 'Enable' ?></a>
                                         <!-- if satu baris untuk logika warna dan tombol enable-->
 
 
