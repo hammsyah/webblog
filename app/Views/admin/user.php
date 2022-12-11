@@ -91,12 +91,75 @@
                                     <td><?= $isi->nama_level ?></td>
 
                                     <td>
-                                        <a href="<?= base_url('user/ubah/' . $isi->id_user); ?>" class="badge badge-warning" type="submit">Edit</a>
+
+                                        <button type="button" class="badge badge-warning" data-toggle="modal" data-target="#modal<?= $isi->id_user; ?>">EDIT</button>
                                         <a href="<?= base_url('user/hapususer/' . $isi->id_user); ?>" class="badge badge-danger" type="submit" onclick="return confirm('Yakin Hapus?')">Hapus</a>
                                         <a href="<?= base_url('user/resetpasword/' . $isi->id_user); ?>" class="badge badge-success " type="submit">Reset Pswd</a>
                                         <a href="<?= base_url('user/enableuser/' . $isi->id_user); ?>/<?= $isi->enable_user ? '0' : '1' ?>" class="badge <?= $isi->enable_user ? 'badge-primary' : 'badge-secondary' ?>  " type="submit"><?= $isi->enable_user ? 'Disable' : 'Enable' ?></a>
                                         <!-- if satu baris untuk logika warna dan tombol enable-->
 
+                                        <!-- Modal edit -->
+                                        <div class="modal fade" id="modal<?= $isi->id_user; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <form method="post" action="<?= base_url('user/ubahsekarang/' . $isi->id_user); ?>">
+                                                <?= csrf_field(); ?>
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">EDIT DATA USER</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+
+
+                                                            <div class="field item form-group">
+                                                                <label class="col-form-label col-md-3 col-sm-3  label-align">Real Name<span class="required">*</span></label>
+                                                                <div class="col-md-6 col-sm-6">
+                                                                    <input type="text" name="realname" class="form-control" value="<?= $isi->realname; ?>">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="field item form-group">
+                                                                <label class="col-form-label col-md-3 col-sm-3  label-align">email / User Name<span class="required">*</span></label>
+                                                                <div class="col-md-6 col-sm-6">
+                                                                    <input type="text" name="user_name" class="form-control" value="<?= $isi->user_name; ?>">
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="field item form-group">
+                                                                <label class="col-form-label col-md-3 col-sm-3  label-align">Level<span class="required">*</span></label>
+                                                                <div class="col-md-6 col-sm-6">
+                                                                    <select name="fid_level" class="form-control" required>
+                                                                        <option value="" hidden></option>
+                                                                        <?php foreach ($level as $u) : ?>
+                                                                            <option value="<?= $u['id_level']; ?>" <?= $isi->fid_level == $u['id_level'] ? 'selected' : null ?>><?= $u['nama_level']; ?></option>
+
+                                                                        <?php endforeach; ?>
+                                                                        <option value=""></option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="field item form-group">
+                                                                <label class="col-form-label col-md-3 col-sm-3  label-align">Keterangan<span class="required">*</span></label>
+                                                                <div class="col-md-6 col-sm-6">
+                                                                    <input type="text" name="keterangan" class="form-control" value="<?= $isi->keterangan; ?>">
+                                                                </div>
+                                                            </div>
+
+
+
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">BATAL</button>
+                                                            <button type="submit" class="btn btn-primary"> SIMPAN </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
 
                                     </td>
 
