@@ -93,9 +93,10 @@
                                     <td>
 
                                         <button type="button" class="badge badge-warning" data-toggle="modal" data-target="#modal<?= $isi->id_user; ?>">EDIT</button>
-                                        <a href="<?= base_url('user/hapususer/' . $isi->id_user); ?>" class="badge badge-danger" type="submit" onclick="return confirm('Yakin Hapus?')">Hapus</a>
-                                        <a href="<?= base_url('user/resetpasword/' . $isi->id_user); ?>" class="badge badge-success " type="submit">Reset Pswd</a>
-                                        <a href="<?= base_url('user/enableuser/' . $isi->id_user); ?>/<?= $isi->enable_user ? '0' : '1' ?>" class="badge <?= $isi->enable_user ? 'badge-primary' : 'badge-secondary' ?>  " type="submit"><?= $isi->enable_user ? 'Disable' : 'Enable' ?></a>
+                                        <button type="button" class="badge badge-danger" data-toggle="modal" data-target="#hapus<?= $isi->id_user; ?>">HAPUS</button>
+                                        <!-- <a href="<?= base_url('user/resetpasword/' . $isi->id_user); ?>" class="badge badge-success " type="submit">Reset Pswd</a> -->
+                                        <button type="button" class="badge badge-success" data-toggle="modal" data-target="#reset<?= $isi->id_user; ?>">RESET PASWORD</button>
+                                        <a type="button" href="<?= base_url('user/enableuser/' . $isi->id_user); ?>/<?= $isi->enable_user ? '0' : '1' ?>" class="badge <?= $isi->enable_user ? 'badge-primary' : 'badge-secondary' ?>  " type="submit"><?= $isi->enable_user ? 'Disable' : 'Enable' ?></a>
                                         <!-- if satu baris untuk logika warna dan tombol enable-->
 
                                         <!-- Modal edit -->
@@ -111,8 +112,6 @@
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-
-
                                                             <div class="field item form-group">
                                                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Real Name<span class="required">*</span></label>
                                                                 <div class="col-md-6 col-sm-6">
@@ -126,7 +125,6 @@
                                                                     <input type="text" name="user_name" class="form-control" value="<?= $isi->user_name; ?>">
                                                                 </div>
                                                             </div>
-
 
                                                             <div class="field item form-group">
                                                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Level<span class="required">*</span></label>
@@ -149,8 +147,6 @@
                                                                 </div>
                                                             </div>
 
-
-
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">BATAL</button>
@@ -161,18 +157,111 @@
                                             </form>
                                         </div>
 
+                                        <!-- modal Hapus -->
+                                        <div class="modal fade" id="hapus<?= $isi->id_user; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">HAPUS USER</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <h4>Anda yakin Hapus user <?= $isi->realname; ?> ?</h4>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                                        <a href="<?= base_url('user/hapususer/' . $isi->id_user); ?>" class="btn btn-danger" type="submit">Yakin</a>
+                                                        <!-- <button type="button" class="btn btn-primary">Yakin</button> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- modal Reset Pasword -->
+                                        <div class="modal fade" id="reset<?= $isi->id_user; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">RESET PASSWORD</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form method="post" action="<?= base_url('user/resetpaswordsekarang/' . $isi->id_user); ?>">
+                                                            <?= csrf_field(); ?>
+
+                                                            <div class="field item form-group">
+                                                                <label class="col-form-label col-md-3 col-sm-3  label-align">Real Name<span class="required">*</span></label>
+                                                                <div class="col-md-6 col-sm-6">
+                                                                    <input type="text" name="realname" class="form-control" value="<?= $isi->realname; ?>" readonly />
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="field item form-group">
+                                                                <label class="col-form-label col-md-3 col-sm-3  label-align">email / User Name<span class="required">*</span></label>
+                                                                <div class="col-md-6 col-sm-6">
+                                                                    <input type="email" name="user_name" class="form-control " value="<?= $isi->user_name; ?>" readonly />
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="field item form-group">
+                                                                <label class="col-form-label col-md-3 col-sm-3  label-align">Password Baru<span class="required">*</span></label>
+                                                                <div class="col-md-6 col-sm-6">
+                                                                    <input class="form-control " type="password" id="password1" name="pasword" />
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="field item form-group">
+                                                                <label class="col-form-label col-md-3 col-sm-3  label-align">Konfirmasi Password Baru<span class="required">*</span></label>
+                                                                <div class="col-md-6 col-sm-6">
+                                                                    <input class="form-control " type="password" id="password2" name="pasword2" required />
+
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="ln_solid">
+                                                                <!--  -->
+                                                                <div class="form-group">
+                                                                    <div class="col-md-6 offset-md-3 mt-2">
+                                                                        <a href="<?= base_Url('user'); ?>" type="button" class="btn btn-secondary"> BATAL </a>
+                                                                        <button type="submit" class="btn btn-primary">SIMPAN</button>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <div class="modal-footer">
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </td>
 
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
+
+
                 </div>
             </div>
         </div>
 
     </div>
 </div>
+
+
 
 
 <?= $this->endSection(); ?>
