@@ -1,5 +1,5 @@
 <!-- halaman ini merujuk ke view template_admin.php -->
-<?= $this->extend('/layout/template_admin'); ?>;
+<?= $this->extend('/layout/template'); ?>;
 
 <!-- buat section disini untuk render di template -->
 <?= $this->section('isikonten'); ?>

@@ -1,4 +1,4 @@
-<?= $this->extend('/layout/template_admin'); ?>
+<?= $this->extend('/layout/template'); ?>
 
 <?= $this->section('isikonten'); ?>
 

@@ -6,6 +6,10 @@ class Artikel extends BaseController
 {
     public function index()
     {
-        return view('page/artikel');
+
+        $data = [
+            'title' => 'Artikel'
+        ];
+        return view('page/artikel', $data);
     }
 }

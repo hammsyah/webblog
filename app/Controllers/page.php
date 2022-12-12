@@ -6,12 +6,19 @@ class Page extends BaseController
 {
     public function index()
     {
-        return view('page/dasboard');
+        $data = [
+            'title' => 'Dasboard'
+        ];
+        return view('page/dasboard', $data);
     }
 
     public function katagori()
     {
-        return view('page/katagori');
+
+        $data = [
+            'title' => 'Kategori'
+        ];
+        return view('page/katagori', $data);
         // arahkan ke view katagori didalam folder page
     }
 }
