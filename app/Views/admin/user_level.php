@@ -1,5 +1,7 @@
+<!-- menunjuk template yang digunakan -->
 <?= $this->extend('/layout/template'); ?>
 
+<!-- memulai section isi konten -->
 <?= $this->section('isikonten'); ?>
 <div class="container">
 
@@ -33,7 +35,7 @@
             ?>
         </div>
     </div>
-
+    <!-- akhir fungsi alert -->
 
     <div class="x_panel">
         <div class="x_title">
@@ -78,12 +80,18 @@
                         <!-- body tabel, isi data kita ambil dari database yang sudah diatur oleh controller user -->
                         <?php $no = 1; ?>
                         <?php foreach ($level as $isi) : ?>
+                            <!-- $level =  data yang dikirim dari kontroler -->
+                            <!-- $isi = alias dari $level-->
                             <tr>
+                                <!-- kolom pertama  -->
                                 <th scope="row"><?= $no++; ?></th>
+                                <!-- kolom kedua 'nama_level'= nama field atau kolom dalam tabel database-->
                                 <td><?= $isi['nama_level'] ?></td>
+                                <!-- kolom ke 3 -->
                                 <td><?= $isi['id_level'] ?></td>
 
                                 <td>
+                                    <!-- kolom terakhir untuk tombol aksi -->
                                     <a href="<?= base_url('user_level/ubah/' . $isi['id']); ?>" class="btn btn-warning btn-sm text-uppercase fw-bold" type="submit">edit</a>
                                     <a href="<?= base_url('user_level/hapuslevel/' . $isi['id']); ?>" class="btn btn-danger btn-sm text-uppercase fw-bold" type="submit" onclick="return confirm('Yakin Hapus?')">Hapus</a>
                                 </td>
@@ -111,7 +119,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-
+                        <!-- kita edit modal dibaris ini -->
                         <div class="form-group">
                             <label>Nama Level</label>
                             <input type="text" name="nama_level" class="form-control" required>
@@ -133,4 +141,6 @@
         </div>
     </form>
 </div>
+
 <?= $this->endSection(); ?>
+<!-- kode dibawah ini ada di template -->

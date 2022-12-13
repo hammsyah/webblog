@@ -14,14 +14,14 @@ class User_level extends BaseController
         $this->aa_user_levelModel = new Aa_user_levelModel(); //membuat objecb baru bernama $aa_userModel
     }
 
-    public function index($ok = null)
+    public function index()
     {
         $level =  $this->aa_user_levelModel->findAll(); //membuat variabel level dan diisi semua data dari tabel aa_user_level
 
         $data = [ //membuat variabel data untuk dikirim ke view user
             'title' => 'Daftar User',
-            'level' => $level, // 'level' berisi semua data dari table aa_user_level
-            'ok' => $ok
+            'level' => $level // 'level' berisi semua data dari table aa_user_level
+
         ];
 
         return view('admin/user_level', $data); //kirim $data ke view user_level 
