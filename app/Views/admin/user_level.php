@@ -9,6 +9,8 @@
     <div class="row">
         <div class="col">
             <?php
+            // mengambil data dari controller
+            // jika ada flash data 'success' maka jalankan fungsi dibawah ini
             if (session()->getFlashData('success')) {
             ?>
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
