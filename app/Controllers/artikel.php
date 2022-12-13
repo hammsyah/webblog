@@ -12,4 +12,12 @@ class Artikel extends BaseController
         ];
         return view('artikel/artikel', $data);
     }
+
+    //function tambah
+
+    //Function edit
+
+    //Function save_edit
+
+    //Function hapus
 }

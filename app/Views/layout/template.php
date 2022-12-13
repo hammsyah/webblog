@@ -77,7 +77,7 @@
                                 <li><a href="<?= base_url('/page/index'); ?>"> <i class="fa fa-tachometer"></i> Dasboard </a>
                                 </li>
 
-                                <li><a href="<?= base_url('/page/katagori'); ?>"> <i class="fa fa-edit"></i> Kategori </a>
+                                <li><a href="<?= base_url('/katagori'); ?>"> <i class="fa fa-edit"></i> Kategori </a>
                                 </li>
 
                                 <li><a href="<?= base_url('/artikel'); ?>"> <i class="fa fa-pencil"></i> Artikel </a>
