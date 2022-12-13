@@ -2,8 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\Aa_user_levelModel;
-use PhpParser\Node\Expr\FuncCall;
+use App\Models\Aa_user_levelModel; //daftarkan model yang dipakai
 
 class User_level extends BaseController
 {
@@ -14,6 +13,7 @@ class User_level extends BaseController
 
         $this->aa_user_levelModel = new Aa_user_levelModel(); //membuat objecb baru bernama $aa_userModel
     }
+
     public function index($ok = null)
     {
         $level =  $this->aa_user_levelModel->findAll(); //membuat variabel level dan diisi semua data dari tabel aa_user_level
