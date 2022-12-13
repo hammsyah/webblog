@@ -10,6 +10,6 @@ class Artikel extends BaseController
         $data = [
             'title' => 'Artikel'
         ];
-        return view('page/artikel', $data);
+        return view('artikel/artikel', $data);
     }
 }
