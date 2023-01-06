@@ -5,10 +5,10 @@
     <div class="row">
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
             <div class="card border-0 shadow rounded-3 my-5">
-                <div class="card-body p-4 p-sm-5">                    
+                <div class="card-body p-4 p-sm-5">
                     <div class="card-title text-center mb-3 fw-light fs-5">
                         <a href="<?= base_url('/home/index'); ?>">
-                            <img src="<?= base_url('assets/images/logo.png')?>">
+                            <img src="<?= base_url('assets/images/logo.png') ?>">
                         </a>
                     </div>
                     <form>
@@ -29,7 +29,7 @@
                         </div>
                         <div class="d-grid">
                             <button class="btn btn-success btn-login text-uppercase fw-bold" type="submit">MASUK</button>
-                            <a class="btn btn-warning btn-login text-uppercase fw-bold" type="button">DAFTAR</a>                            
+                            <a class="btn btn-warning btn-login text-uppercase fw-bold" type="button">DAFTAR</a>
                         </div>
                     </form>
                 </div>
@@ -37,4 +37,5 @@
         </div>
     </div>
 </div>
+
 <?= $this->include('layout/footer'); ?>
