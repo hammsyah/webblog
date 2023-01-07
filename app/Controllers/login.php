@@ -6,6 +6,6 @@ class Login extends BaseController
 {
     public function index()
     {
-        return view('login2');
+        return view('frontend/login2');
     }
 }

@@ -48,6 +48,7 @@
                             <div class="col-lg-6">
                                 <div class="card-body p-md-5 mx-md-4">
 
+
                                     <div class="text-center">
                                         <img src="<?= base_url('assets/images/logo.png') ?>">
                                         <!-- <h4 class="mt-1 mb-5 pb-1">We are The Seven Team</h4> -->
@@ -55,21 +56,34 @@
                                         <br>
                                     </div>
 
-                                    <form>
+                                    <form action="<?= base_url('auth/login'); ?>" method="post">
 
 
                                         <div class="form-outline mb-4">
-                                            <input type="email" id="form2Example11" class="form-control" placeholder="Phone number or email address" />
+                                            <input type="text" id="form2Example11" class="form-control" placeholder="user_name" name="user_name" />
                                             <label class="form-label" for="form2Example11">Username atau email</label>
                                         </div>
 
                                         <div class="form-outline mb-4">
-                                            <input type="password" id="form2Example22" class="form-control" />
+                                            <input type="password" id="form2Example22" class="form-control" name="password" />
                                             <label class="form-label" for="form2Example22">Password</label>
                                         </div>
 
+                                        <!-- alert -->
+                                        <?php
+                                        if (session()->getFlashData('danger')) {
+                                        ?>
+                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                <?= session()->getFlashData('danger') ?>
+
+                                            </div>
+                                        <?php
+                                        }
+                                        ?>
+                                        <!-- akhir alert -->
+
                                         <div class="text-center pt-1 mb-5 pb-1">
-                                            <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button">Log
+                                            <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Log
                                                 in</button>
                                             <a class="text-muted" href="#!">lupa password?</a>
                                         </div>
