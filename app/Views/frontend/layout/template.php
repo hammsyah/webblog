@@ -81,7 +81,7 @@
                 </ul>
             </nav><!-- .navbar -->
 
-            <a type="button" class="btn btn-outline-success btn-sm " href="<?= base_url('/login/index'); ?>">LOGIN</a>
+            <a type="button" class="btn btn-outline-success btn-sm " href="<?= base_url('/frontend/login'); ?>">LOGIN</a>
 
             <div class="position-relative">
                 <a href="#" class="mx-2"><span class="bi-facebook"></span></a>

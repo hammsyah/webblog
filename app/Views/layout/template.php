@@ -74,7 +74,7 @@
                         <div class="menu_section">
                             <h3>Administrator</h3>
                             <ul class="nav side-menu">
-                                <li><a href="<?= base_url('/page/index'); ?>"> <i class="fa fa-tachometer"></i> Dasboard </a>
+                                <li><a href="<?= base_url('/dasboard'); ?>"> <i class="fa fa-tachometer"></i> Dasboard </a>
                                 </li>
 
                                 <li><a href="<?= base_url('/katagori'); ?>"> <i class="fa fa-edit"></i> Kategori </a>
@@ -136,7 +136,7 @@
                                         <span>Settings</span>
                                     </a>
                                     <a class="dropdown-item" href="javascript:;">Help</a>
-                                    <a class="dropdown-item" href="<?= base_url(); ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                    <a class="dropdown-item" href="<?= base_url('auth/logout'); ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                                 </div>
                             </li>
 

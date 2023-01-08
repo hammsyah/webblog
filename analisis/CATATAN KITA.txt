@@ -37,3 +37,7 @@ sesuaikan konfigurasi disana, file ini tidak ikut diupload ke github karena seti
 
 bootstrap:
 https://getbootstrap.com/docs/4.6/getting-started/introduction/
+
+akun admin:
+user: budi@webblog.com
+

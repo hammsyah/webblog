@@ -196,7 +196,7 @@
                                                             <div class="field item form-group">
                                                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Real Name<span class="required">*</span></label>
                                                                 <div class="col-md-6 col-sm-6">
-                                                                    <input type="text" name="realname" class="form-control" value="<?= $isi->realname; ?>" readonly />
+                                                                    <input type="text" class="form-control" value="<?= $isi->realname; ?>" readonly />
 
                                                                 </div>
                                                             </div>
@@ -204,7 +204,7 @@
                                                             <div class="field item form-group">
                                                                 <label class="col-form-label col-md-3 col-sm-3  label-align">email / User Name<span class="required">*</span></label>
                                                                 <div class="col-md-6 col-sm-6">
-                                                                    <input type="email" name="user_name" class="form-control " value="<?= $isi->user_name; ?>" readonly />
+                                                                    <input type="email" class="form-control " value="<?= $isi->user_name; ?>" readonly />
 
                                                                 </div>
                                                             </div>

@@ -65,7 +65,7 @@
                                         </div>
 
                                         <div class="form-outline mb-4">
-                                            <input type="password" id="form2Example22" class="form-control" name="password" />
+                                            <input type="password" id="form2Example22" class="form-control" name="pasword" />
                                             <label class="form-label" for="form2Example22">Password</label>
                                         </div>
 

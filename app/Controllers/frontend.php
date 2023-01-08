@@ -28,4 +28,9 @@ class Frontend extends BaseController
     {
         return view('frontend/contact');
     }
+
+    public function login()
+    {
+        return view('frontend/login2');
+    }
 }

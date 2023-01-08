@@ -31,8 +31,20 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
-$routes->get('/user/edit', 'User::edit');
+//$routes->get('/', 'frontend::index');
+if (session('log') != TRUE) {
+    $routes->get('/', 'frontend::index');
+    $routes->get('/frontend', 'frontend::index');
+    $routes->get('/frontend/login', 'frontend::login');
+} else {
+    $routes->get('/', 'dasboard::index');
+    $routes->get('/frontend', 'dasboard::index');
+    $routes->get('/frontend/login', 'dasboard::index');
+}
+
+
+//$routes->get('/user/edit', 'User::edit');
+
 
 /*
  * --------------------------------------------------------------------

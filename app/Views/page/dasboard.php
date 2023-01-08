@@ -2,8 +2,28 @@
 
 <?= $this->section('isikonten'); ?>
 
+<div class="row">
+    <div class="col">
+        <!-- alert -->
+        <?php
+        if (session()->getFlashData('success')) {
+        ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <?= session()->getFlashData('success') ?>
+
+            </div>
+        <?php
+        }
+        ?>
+        <!-- akhir alert -->
+    </div>
+</div>
+
 
 <div class="row">
+
+
+
 
     <div class="col-md-4 col-sm-4 ">
         <div class="x_panel">

@@ -83,7 +83,15 @@ class User extends BaseController
 
         //jika semua input valid baru data disimpan ke database dengan code dibawah ini
 
-        $data = $this->request->getPost(); //mengambil data dari submit tambah data
+        $data = [
+            'fid_level' => $this->request->getPost('fid_level'), //mengambil data dari submit tambah data
+            'user_name' => $this->request->getPost('user_name'),
+            'pasword' => password_hash($this->request->getPost('pasword'), PASSWORD_DEFAULT),
+            'realname' => $this->request->getPost('realname'),
+            'enable_user' => '1',
+
+        ];
+
         $this->aa_userModel->insert($data); // insert data ke data base
         return redirect()->to(base_url('user/mautambah'))->with('success', 'Data Berhasil disimpan'); //kembalikan ke halaman daftar user setelah berhasil insert
     }
@@ -160,7 +168,12 @@ class User extends BaseController
 
         //jika semua input valid baru data disimpan ke database dengan code dibawah ini
 
-        $data =  $this->request->getPost(); //mendapatkan data dari view reset password
+        // $data =  $this->request->getPost(); //mendapatkan data dari view reset password
+
+        $data = [
+            'pasword' => password_hash($this->request->getPost('pasword'), PASSWORD_DEFAULT),
+        ];
+
         $this->aa_userModel->update($id_user, $data); // mengupdate database berdasarkan data yang didapat
         return redirect()->to(base_url('/user'))->with('success', 'Password Berhasil di RESET'); //jika berhasil tamilkan laman user
     }
