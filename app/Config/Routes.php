@@ -42,6 +42,8 @@ if (session('log') != TRUE) {
     $routes->get('/frontend/login', 'dasboard::index');
 }
 
+// $routes->get('/', 'frontend::index');
+// $routes->get('/dashboard', 'dasboard::index', ['filter' => 'authFilter']);
 
 //$routes->get('/user/edit', 'User::edit');
 

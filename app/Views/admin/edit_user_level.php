@@ -18,7 +18,7 @@
 
                 <div class="form-group">
                     <label>id Level</label>
-                    <input type="text" name="user_name" class="form-control" value="<?= $level['id_level']; ?>">
+                    <input type="text" name="user_name" class="form-control" value="<?= $level['id_level']; ?>" readonly>
                 </div>
 
                 <a href="<?= base_Url('user_level'); ?>" type="button" class="btn btn-secondary"> BATAL </a>

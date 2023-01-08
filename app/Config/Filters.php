@@ -41,8 +41,8 @@ class Filters extends BaseConfig
             // 'invalidchars',
         ],
         'after' => [
-            'authFilter' => ['except' => ['artikel/*', 'dasboard/*', 'katagori/*', 'user_level/*', 'user/*']],
-            //'toolbar',
+            //  'authFilter' => ['except' => ['artikel/*', 'dasboard/*', 'katagori/*', 'user_level/*', 'user/*']],
+            'toolbar',
             // 'honeypot',
             // 'secureheaders',
         ],

@@ -3,15 +3,18 @@
 namespace App\Controllers;
 
 use App\Models\Aa_user_levelModel; //daftarkan model yang dipakai
+use App\Models\Aa_userModel;
 
 class User_level extends BaseController
 {
     protected $aa_user_levelModel; //buat properti baru agar bisa dipakai di semua method
+    protected $aa_userModel;
 
     public function __construct() //kita bikin untuk menjalankan skrip yang dipakai untuk semua method disini
     {
 
         $this->aa_user_levelModel = new Aa_user_levelModel(); //membuat objecb baru bernama $aa_userModel
+        $this->aa_userModel = new Aa_userModel();
     }
 
     public function index()
@@ -58,6 +61,16 @@ class User_level extends BaseController
 
     public function hapuslevel($id = null) //fungsi untuk delete data saat tombol simpan ditekan dan menangkap id_user
     {
+        $apa = 'fid_level';
+        $level =  $this->aa_user_levelModel->ambilsatuUserlevel($id);
+        foreach ($level as $key => $value) {
+            # code...
+        }
+        $user =  $this->aa_userModel->ambilsatuUser($value->id_level, $apa);
+        if ($user != NULL) {
+            return redirect()->to(base_url('/user_level'))->with('danger', 'Level tidak dapat dihapus, karena digunakan tabel lain'); //jika berhasil tamilkan laman user
+        }
+
         $this->aa_user_levelModel->delete($id); // menghapus database berdasarkan data yang didapat
         return redirect()->to(base_url('/user_level'))->with('danger', 'Data Berhasil Dihapus'); //jika berhasil tamilkan laman user
 

@@ -62,7 +62,9 @@
                         </div>
                         <div class="profile_info">
                             <span>Selamat Datang,</span>
-                            <h2>John Doe</h2>
+                            <h2> <?= session('realname'); ?></h2>
+
+
                         </div>
                     </div>
                     <!-- /menu profile quick info -->
@@ -72,24 +74,54 @@
                     <!-- sidebar menu -->
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                         <div class="menu_section">
-                            <h3>Administrator</h3>
+                            <h3><?= session('nama_level'); ?> </h3>
+
+
                             <ul class="nav side-menu">
-                                <li><a href="<?= base_url('/dasboard'); ?>"> <i class="fa fa-tachometer"></i> Dasboard </a>
-                                </li>
 
-                                <li><a href="<?= base_url('/katagori'); ?>"> <i class="fa fa-edit"></i> Kategori </a>
-                                </li>
+                                <?php if (session('level') == 1) { ?>
+                                    <li><a href="<?= base_url('/dasboard'); ?>"> <i class="fa fa-tachometer"></i> Dasboard </a>
+                                    </li>
 
-                                <li><a href="<?= base_url('/artikel'); ?>"> <i class="fa fa-pencil"></i> Artikel </a>
-                                </li>
+                                    <li><a href="<?= base_url('/katagori'); ?>"> <i class="fa fa-edit"></i> Kategori </a>
+                                    </li>
 
-                                <li><a><i class="fa fa-group"></i> Manajemen User <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="<?= base_url('/user'); ?>">Daftar User</a></li>
-                                        <li><a href="<?= base_url('/user_level'); ?>">Level User</a></li>
+                                    <li><a href="<?= base_url('/artikel'); ?>"> <i class="fa fa-pencil"></i> Artikel </a>
+                                    </li>
 
-                                    </ul>
-                                </li>
+                                    <li><a><i class="fa fa-group"></i> Manajemen User <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="<?= base_url('/user'); ?>">Daftar User</a></li>
+                                            <li><a href="<?= base_url('/user_level'); ?>">Level User</a></li>
+
+                                        </ul>
+                                    </li>
+                                <?php } ?>
+
+
+                                <?php if (session('level') == 2) { ?>
+                                    <li><a href="<?= base_url('/dasboard'); ?>"> <i class="fa fa-tachometer"></i> Dasboard </a>
+                                    </li>
+
+                                    <li><a href="<?= base_url('/katagori'); ?>"> <i class="fa fa-edit"></i> Kategori </a>
+                                    </li>
+
+                                    <li><a href="<?= base_url('/artikel'); ?>"> <i class="fa fa-pencil"></i> Artikel </a>
+                                    </li>
+
+
+                                <?php } ?>
+
+                                <?php if (session('level') == 3) { ?>
+
+                                    <li><a href="<?= base_url('/katagori'); ?>"> <i class="fa fa-edit"></i> Kategori </a>
+                                    </li>
+
+                                    <li><a href="<?= base_url('/artikel'); ?>"> <i class="fa fa-pencil"></i> Artikel </a>
+                                    </li>
+
+
+                                <?php } ?>
 
                             </ul>
                         </div>
@@ -127,7 +159,7 @@
                         <ul class=" navbar-right">
                             <li class="nav-item dropdown open" style="padding-left: 15px;">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="<?= base_url(); ?>/assets/images/pp/img.jpg" alt="">John Doe
+                                    <img src="<?= base_url(); ?>/assets/images/pp/img.jpg" alt=""><?= session('realname'); ?>
                                 </a>
                                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="javascript:;"> Profile</a>

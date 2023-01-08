@@ -20,6 +20,7 @@ class Auth extends BaseController
 
     public function login()
     {
+        $apa = 'user_name';
         //membuat object baru untuk model
         $userModel = new Aa_userModel;
 
@@ -28,7 +29,7 @@ class Auth extends BaseController
         $password = $this->request->getPost('pasword');
 
         //ambil data data dari tabel user berdasarkan username yang diinput saat login
-        $row = $userModel->ambilsatuUser($user_name);
+        $row = $userModel->ambilsatuUser($user_name, $apa);
         foreach ($row as $key => $roww) {
         }
         //jika user tidak tidtemukan
